@@ -17,11 +17,11 @@ Built with **FastAPI** and Python, the backend is responsible for data ingestion
 - **Telemetry Streaming**: Real-time event streaming via SSE to push logs and agent status updates directly to the client.
 
 ### Frontend Overview
-A modern, responsive user interface built with **React** and **Vite**.
+A modern, responsive user interface built with **Streamlit** (Python).
 
-- **Styling**: Uses **Tailwind CSS v4** for utility-first styling and a clean, dark-mode native interface.
-- **Visualization**: Integrates **Recharts** for real-time telemetry graphs and system health metrics.
-- **Icons**: Uses **Lucide React** for consistent iconography.
+- **Real-time Streaming**: Connects to backend SSE endpoints for live telemetry and agent updates.
+- **Interactive Dashboard**: Service health grid, live log stream, agent timeline, and RCA reports.
+- **Incident Triggering**: Direct UI to trigger autonomous diagnostic workflows.
 
 ## API Endpoints
 
@@ -35,7 +35,6 @@ The API is structured under the `/api/v1` prefix:
 
 ### Prerequisites
 - Docker and Docker Compose
-- Node.js (v18+)
 - Python 3.10+ (if running manually)
 - Ollama (if running local LLMs)
 
@@ -45,7 +44,7 @@ The easiest way to get the entire stack running is via Docker Compose. This will
 ```bash
 docker-compose up --build
 ```
-- Frontend will be available at `http://localhost:5173`
+- Frontend will be available at `http://localhost:8501`
 - Backend API will be available at `http://localhost:8000`
 
 ### Manual Development Setup
@@ -60,11 +59,11 @@ The backend requires a Python virtual environment and its dependencies. We provi
 Alternatively, navigate to `/backend`, run `pip install -r requirements.txt`, and start the server with `uvicorn app.main:app --reload`.
 
 **2. Start the Frontend**
-The frontend requires Node modules to be installed. We provide a convenience script:
+The frontend requires Python dependencies. We provide a convenience script:
 ```bash
 ./run_frontend.sh
 ```
-Alternatively, navigate to `/frontend`, run `npm install`, and start the development server with `npm run dev`.
+Alternatively, navigate to `/frontend`, run `pip install -r requirements.txt`, and start the Streamlit server with `streamlit run app.py`.
 
 ## Configuration
 

@@ -13,7 +13,6 @@ class OrchestratorAgent:
     async def run_incident_workflow(self, incident_description: str):
         await ingestion_queue.push_agent_thought(self.name, f"Initializing RCA workflow for: {incident_description}")
         
-        # Run sub-agents concurrently
         await ingestion_queue.push_agent_thought(self.name, "Delegating tasks to sub-agents...")
         results = await asyncio.gather(
             log_analyzer.analyze(incident_description),
@@ -25,7 +24,6 @@ class OrchestratorAgent:
         
         await ingestion_queue.push_agent_thought(self.name, "Aggregating sub-agent findings...")
         
-        # Generate final RCA
         system_prompt = """You are the Lead Diagnostic Orchestrator Agent. 
         Compile the sub-agent findings into a final Markdown Root Cause Analysis (RCA) report.
         Also provide an overall incident confidence score (0-100).

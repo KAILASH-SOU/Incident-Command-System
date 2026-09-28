@@ -6,8 +6,8 @@ class IngestionQueue:
         self.logs_queue = asyncio.Queue()
         self.metrics_queue = asyncio.Queue()
         self.spans_queue = asyncio.Queue()
-        self.stream_queue = asyncio.Queue() # For SSE to frontend
-        self.agent_queue = asyncio.Queue()  # For agent timeline SSE
+        self.stream_queue = asyncio.Queue()
+        self.agent_queue = asyncio.Queue()
         
     async def push_log(self, data: Dict[str, Any]):
         await self.logs_queue.put(data)

@@ -4,7 +4,6 @@ from app.services.ingestion_queue import ingestion_queue
 import random
 
 async def simulate_incident():
-    # Simulate some logs
     levels = ["INFO", "WARN", "ERROR", "FATAL"]
     services = ["auth-service", "payment-gateway", "user-db", "frontend-proxy"]
     

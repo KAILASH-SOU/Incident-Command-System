@@ -15,9 +15,11 @@ services:
     build:
       context: ./frontend
     ports:
-      - "5173:5173"
+      - "8501:8501"
     networks:
       - sentinel_network
+    depends_on:
+      - backend
 
 networks:
   sentinel_network:
