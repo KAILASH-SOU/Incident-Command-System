@@ -1,4 +1,4 @@
-# 🛡️ SentinelCore
+#  SentinelCore
 
 > **A production-grade, local-first Incident Command & Automated Root Cause Analysis (RCA) system.**
 
@@ -8,7 +8,7 @@ Built local-first to ensure sensitive system telemetry, PII, and credentials nev
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 - [System Architecture](#-system-architecture)
 - [How It Works (Workflow)](#-how-it-works-workflow)
 - [Key Architectural Decisions & Tradeoffs](#-key-architectural-decisions--tradeoffs)
@@ -23,7 +23,7 @@ Built local-first to ensure sensitive system telemetry, PII, and credentials nev
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```mermaid
 flowchart TD
@@ -65,7 +65,7 @@ flowchart TD
 
 ---
 
-## ⚡ How It Works (Workflow)
+##  How It Works (Workflow)
 
 1. **Telemetry Ingestion:** External services and microservices push structured application logs, error payloads, and alerts to `POST /api/v1/ingest/log`. Logs are buffered asynchronously to decouple ingestion throughput from downstream AI inference.
 2. **Incident Trigger:** When an alert fires or an engineer submits an incident description (e.g., *"Database connection timeouts on checkout service following deployment"*), the `LeadOrchestrator` agent initializes the diagnostic pipeline.
@@ -79,7 +79,7 @@ flowchart TD
 
 ---
 
-## ⚖️ Key Architectural Decisions & Tradeoffs
+##  Key Architectural Decisions & Tradeoffs
 
 Engineering production software is fundamentally an exercise in navigating tradeoffs. Here is the rationale behind each core technical decision in SentinelCore:
 
@@ -124,7 +124,7 @@ Engineering production software is fundamentally an exercise in navigating trade
 
 ---
 
-## 🤖 Multi-Agent Diagnostic System
+##  Multi-Agent Diagnostic System
 
 SentinelCore employs a hub-and-spoke multi-agent architecture:
 
@@ -137,7 +137,7 @@ SentinelCore employs a hub-and-spoke multi-agent architecture:
 
 ---
 
-## 🔍 Hybrid RAG Engine & Reciprocal Rank Fusion
+##  Hybrid RAG Engine & Reciprocal Rank Fusion
 
 To prevent LLM context window overflows and token hallucination during incident analysis, SentinelCore avoids dumping entire post-mortems into prompts.
 
@@ -152,7 +152,7 @@ To prevent LLM context window overflows and token hallucination during incident 
 
 ---
 
-## 🛡️ Resilience & Edge Cases Handled
+##  Resilience & Edge Cases Handled
 
 During engineering and testing, several real-world failure modes were identified and resolved:
 
@@ -162,7 +162,7 @@ During engineering and testing, several real-world failure modes were identified
 
 ---
 
-## 📈 Enterprise Scaling Roadmap
+## Enterprise Scaling Roadmap
 
 For production environments handling tens of thousands of telemetry events per second:
 
@@ -173,7 +173,7 @@ For production environments handling tens of thousands of telemetry events per s
 
 ---
 
-## 📁 Project Directory Structure
+##  Project Directory Structure
 
 ```text
 Incident-Command-System/
@@ -220,7 +220,7 @@ Incident-Command-System/
 
 ---
 
-## 🔌 API Reference
+##  API Reference
 
 Base URL: `http://localhost:8000/api/v1`
 
@@ -275,7 +275,7 @@ data: {"type": "log", "service": "payment-service", "level": "ERROR", "message":
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Docker](https://www.docker.com/) & Docker Compose **OR** Python 3.10+
@@ -324,7 +324,7 @@ docker-compose up --build
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 Environment variables can be defined in a `.env` file at the root or passed directly:
 
@@ -337,6 +337,6 @@ Environment variables can be defined in a `.env` file at the root or passed dire
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the [MIT License](LICENSE).
