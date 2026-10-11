@@ -44,7 +44,7 @@ class HybridRAGEngine:
         if self.tokenized_corpus:
             self.bm25 = BM25Okapi(self.tokenized_corpus)
             
-def search(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
+    def search(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         if not self.documents:
             return []
             
